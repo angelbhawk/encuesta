@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SurveyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('survey');
-});
+Route::get('/', [SurveyController::class,'consultarPreguntas']);
+Route::get('/enviar/{numero}/{respuesta}/{nombre}', [SurveyController::class,'guardarRespuestas']);

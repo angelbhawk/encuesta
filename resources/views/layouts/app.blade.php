@@ -12,7 +12,35 @@
         <p>Fecha actual</p>
     </header>
     <section>
-        @yield('content')
+        <article id="encuesta">
+            @yield('content')
+        </article>
+        <article id="resultados">
+            <h4>Hola</h4>
+            <p>¡Tu respuesta fue enviada con exito!</p>
+            <button type="button" class="btn btn-primary" onclick="borrarValores()">Borrar respuestas</button>
+        </article>
     </section>
+
+    <script>
+        // Comprobamos si el objeto que estamos buscando existe en localStorage
+        if (localStorage.getItem('respuestas') === null) 
+        {
+            // Si el objeto no se encuentra en localStorage, ocultamos el formulario
+            var article_res = document.getElementById('resultados'); // Reemplaza 'tuFormulario' con el ID de tu formulario
+            article_res.style.display = 'none';
+        }
+        else
+        {
+            var article_enc = document.getElementById('encuesta'); // Reemplaza 'tuFormulario' con el ID de tu formulario
+            article_enc.style.display = 'none';
+        }
+
+        function borrarValores() 
+        {
+            localStorage.removeItem("respuestas");
+            location.reload();
+        }
+    </script>
 </body>
 </html>
