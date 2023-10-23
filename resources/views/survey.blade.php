@@ -4,70 +4,72 @@
 
 @section('content')
     <!-- Secciones -->
-            @if (!empty($secciones))
-				@foreach ($secciones as $s)
-                    <div class="accordion accordion-flush" id="accordion-{{ $s->Clasificacion }}">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapse show" type="button" data-bs-toggle="collapse" data-bs-target="#flush-{{ $s->Clasificacion }}" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    Seccion {{ $s->Clasificacion }}
-                                </button>
-                            </h2>
+            <article id="encuesta">
+                @if (!empty($secciones))
+                    @foreach ($secciones as $s)
+                        <div class="accordion accordion-flush" id="accordion-{{ $s->Clasificacion }}">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapse show" type="button" data-bs-toggle="collapse" data-bs-target="#flush-{{ $s->Clasificacion }}" aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Seccion {{ $s->Clasificacion }}
+                                    </button>
+                                </h2>
 
-                            <!-- Preguntas -->
+                                <!-- Preguntas -->
 
-                            @if (!empty($preguntas))
-				                @foreach ($preguntas as $p)
-                                    @if ($p->Clasificacion == $s->Clasificacion)
-                                        <div id="flush-{{ $s->Clasificacion }}" class="accordion-collapse collapse show" data-bs-parent="#accordionFlush-{{ $s->Clasificacion }}">
-                                            <div class="accordion-body">
-                                                <p>{{ $p->Numero }}. {{ $p->Pregunta }}</p>
-                                                <form class="mi-formulario">
-                                                    <div class="alert alert-danger" name="alerta" id="alerta{{ $p->Numero }}" style="display: none;">
-                                                        Por favor, responda a la pregunta resaltada antes de continuar.
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ir{{ $p->Numero }}" value="5">
-                                                    <label class="form-check-label" for="ir{{ $p->Numero }}">Totalmente de acuerdo</label>
-                                                    </div><br>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ir{{ $p->Numero }}" value="4">
-                                                        <label class="form-check-label" for="ir{{ $p->Numero }}">De acuerdo</label>
-                                                    </div><br>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ir{{ $p->Numero }}" value="3">
-                                                        <label class="form-check-label" for="ir{{ $p->Numero }}">Indiferente</label>
-                                                    </div><br>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ir{{ $p->Numero }}" value="2">
-                                                        <label class="form-check-label" for="ir{{ $p->Numero }}">En desacuerdo</label>
-                                                    </div><br>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ir{{ $p->Numero }}" value="1">
-                                                        <label class="form-check-label" for="ir{{ $p->Numero }}">Totalmente en desacuerdo</label>
-                                                    </div>
-                                                </form>
+                                @if (!empty($preguntas))
+                                    @foreach ($preguntas as $p)
+                                        @if ($p->Clasificacion == $s->Clasificacion)
+                                            <div id="flush-{{ $s->Clasificacion }}" class="accordion-collapse collapse show" data-bs-parent="#accordionFlush-{{ $s->Clasificacion }}">
+                                                <div class="accordion-body">
+                                                    <p>{{ $p->Numero }}. {{ $p->Pregunta }}</p>
+                                                    <form class="mi-formulario">
+                                                        <div class="alert alert-danger" name="alerta" id="alerta{{ $p->Numero }}" style="display: none;">
+                                                            Por favor, responda a la pregunta resaltada antes de continuar.
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ir{{ $p->Numero }}" value="5">
+                                                        <label class="form-check-label" for="ir{{ $p->Numero }}">Totalmente de acuerdo</label>
+                                                        </div><br>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ir{{ $p->Numero }}" value="4">
+                                                            <label class="form-check-label" for="ir{{ $p->Numero }}">De acuerdo</label>
+                                                        </div><br>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ir{{ $p->Numero }}" value="3">
+                                                            <label class="form-check-label" for="ir{{ $p->Numero }}">Indiferente</label>
+                                                        </div><br>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ir{{ $p->Numero }}" value="2">
+                                                            <label class="form-check-label" for="ir{{ $p->Numero }}">En desacuerdo</label>
+                                                        </div><br>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ir{{ $p->Numero }}" value="1">
+                                                            <label class="form-check-label" for="ir{{ $p->Numero }}">Totalmente en desacuerdo</label>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
-                                        </div>
-                                    @else
-			                        @endif
-                                @endforeach
-			                @else
-				                <p>No hay preguntas</p>
-			                @endif
-
-                            <!-- Preguntas -->
-
+                                        @else
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <p>No hay preguntas</p>
+                                @endif
+                                <!-- Preguntas -->
+                            </div>
                         </div>
-                    </div>
-                @endforeach
-			@else
-				<p>No hay secciones</p>
-			@endif
-
-            <!-- Secciones -->
-
-            <button type="button" class="btn btn-primary enviar" onclick="verificarFormularios()">Guardar respuestas</button>
+                    @endforeach
+                @else
+                    <p>No hay secciones</p>
+                @endif
+                <button type="button" class="btn btn-primary enviar" onclick="verificarFormularios()">Guardar respuestas</button>
+            </article>
+            <article id="resultados">
+                <h4>Hola</h4>
+                <p>¡Tu respuesta fue enviada con exito!</p>
+                <button type="button" class="btn btn-primary" onclick="borrarValores()">Borrar respuestas</button>
+            </article>
 
             <!-- Local Storage -->
 
@@ -150,7 +152,6 @@
                     }
                 }
 
-
                 function obtenerValores() {
                     // Obtener todos los formularios con la clase "mi-formulario"
                     var formularios = document.getElementsByClassName("mi-formulario");
@@ -180,5 +181,25 @@
                     console.log(JSON.stringify(valoresPorFormulario));
                     enviar();
                 }
+
+                // Comprobamos si el objeto que estamos buscando existe en localStorage
+                if (localStorage.getItem('respuestas') === null) 
+                {
+                    // Si el objeto no se encuentra en localStorage, ocultamos el formulario
+                    var article_res = document.getElementById('resultados'); // Reemplaza 'tuFormulario' con el ID de tu formulario
+                    article_res.style.display = 'none';
+                }
+                else
+                {
+                    var article_enc = document.getElementById('encuesta'); // Reemplaza 'tuFormulario' con el ID de tu formulario
+                    article_enc.style.display = 'none';
+                }
+
+                function borrarValores() 
+                {
+                    localStorage.removeItem("respuestas");
+                    location.reload();
+                }
+
             </script>
 @endsection

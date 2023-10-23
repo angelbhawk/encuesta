@@ -13,12 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::unprepared(file_get_contents(base_path().'/database/sql/clasificaciones.sql'));
+        //DB::unprepared(file_get_contents(base_path().'/database/sql/clasificaciones.sql'));
 
-        DB::unprepared(file_get_contents(base_path().'/database/sql/encuestas.sql'));
-        DB::unprepared(file_get_contents(base_path().'/database/sql/opciones.sql'));
-        DB::unprepared(file_get_contents(base_path().'/database/sql/preguntas.sql'));
-        DB::unprepared(file_get_contents(base_path().'/database/sql/respuestas.sql'));
+        //DB::unprepared(file_get_contents(base_path().'/database/sql/encuestas.sql'));
+        //DB::unprepared(file_get_contents(base_path().'/database/sql/opciones.sql'));
+        //DB::unprepared(file_get_contents(base_path().'/database/sql/preguntas.sql'));
+        //DB::unprepared(file_get_contents(base_path().'/database/sql/respuestas.sql'));
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
