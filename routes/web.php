@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\AnimationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,6 @@ Route::get('/enviar/{numero}/{respuesta}/{nombre}', [SurveyController::class,'gu
 
 Route::get('/productos', [ProductoController::class,'mostrar']);
 Route::get('/productos/consultar', [ProductoController::class,'consultar']);
-//Route::get('/productos/subir', [ProductoController::class,'subir']);
-
 Route::post('/productos/subir', [ProductoController::class, 'subir']);
+
+Route::get('/animacion', [AnimationController::class, 'mostrar']);
